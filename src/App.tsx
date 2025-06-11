@@ -1,8 +1,13 @@
 import { useRef, useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
-import HeroSection from "./sections/Hero";
+
 import Loading from "./components/Loading";
 import logoImg from "./assets/test.png";
+
+import HeroSection from "./sections/Hero";
+import ContactSection from "./sections/Contact";
+import ServicesSection from "./sections/Services";
+import SkillsSection from "./sections/Skills";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -24,7 +29,7 @@ function App() {
   const navItems = [
     { label: "Skills", ref: skillsRef },
     { label: "Projects", ref: worksRef },
-    { label: "Home", ref: heroRef, logo: logoImg }, // Add logo here
+    { label: "Home", ref: heroRef, logo: logoImg },
     { label: "Services", ref: servicesRef },
     { label: "Contact", ref: contactRef },
   ];
@@ -38,6 +43,7 @@ function App() {
     };
   }, []);
 
+  // Uncomment if you want to use the loading screen
   if (loading) {
     return (
       <div
@@ -51,39 +57,48 @@ function App() {
   }
 
   return (
-    <div className="relative">
+    <div className="relative flex flex-col">
       <Navbar items={navItems} onNavClick={handleNavClick} />
 
-      <div className="w-full max-w-full sm:max-w-[60vw] mx-auto">
-        <section ref={heroRef} className="min-h-screen pt-14 scroll-mt-14">
+      <main className="flex-1 w-full max-w-full lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 lg:px-8">
+        <section
+          ref={heroRef}
+          className="min-h-[60vh] py-14 scroll-mt-14 w-full"
+        >
           <HeroSection />
         </section>
         <section
           ref={skillsRef}
-          className="min-h-screen pt-14 bg-gray-100 scroll-mt-14"
+          className="min-h-[60vh] py-14  scroll-mt-14 w-full"
         >
-          <div>Features Content</div>
+          <SkillsSection />
         </section>
-        <section ref={worksRef} className="min-h-screen pt-14 scroll-mt-14">
+        <section
+          ref={worksRef}
+          className="min-h-[60vh] py-14  scroll-mt-14 w-full"
+        >
           <div>Projects</div>
         </section>
         <section
           ref={servicesRef}
-          className="min-h-screen pt-14 bg-gray-100 scroll-mt-14"
+          className="min-h-[60vh] py-14 scroll-mt-14 w-full"
         >
-          <div>Services</div>
+          <ServicesSection />
         </section>
-      </div>
+      </main>
+
       <section
         ref={contactRef}
         className="min-h-screen pt-14 bg-black scroll-mt-14 w-full"
       >
-        <div className="max-w-full sm:max-w-[60vw] mx-auto px-4 text-white">
-          Contact
+        <div className="w-full max-w-full sm:max-w-[65vw] mx-auto px-4 sm:px-8 text-white">
+          <ContactSection />
         </div>
       </section>
-      <footer className="w-full text-center py-4">
-        &copy; {new Date().getFullYear()}, Kyle David S. Caumeran
+
+      <footer className="w-full max-w-full lg:max-w-[65vw] mx-auto text-center px-4 lg:px-8 py-4 text-xs sm:text-base">
+        &copy; {new Date().getFullYear()}. Designed and Developed by Kyle David
+        Caumeran
       </footer>
     </div>
   );

@@ -1,10 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-body {
-  @apply font-mono;
-}
-
 html,
 body {
   overflow-x: hidden;
