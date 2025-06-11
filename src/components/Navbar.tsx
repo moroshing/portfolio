@@ -1,7 +1,7 @@
 interface NavItem {
   label: string;
   ref: React.RefObject<HTMLElement | null>;
-  logo?: string; // Optional logo image URL
+  logo?: string;
 }
 
 interface NavbarProps {
@@ -16,16 +16,19 @@ const Navbar = ({ items, onNavClick }: NavbarProps) => (
         <button
           key={item.label}
           onClick={() => onNavClick(item.ref)}
-          className="px-2 sm:px-4 py-1 sm:py-2 text-gray-800 hover:text-accent-foreground transition-colors text-xs sm:text-base"
+          className="px-3 py-1.5 rounded-md transition-all duration-200
+                    text-gray-700 hover:text-gray-900 
+                    hover:bg-gray-100/80 active:bg-gray-200/60
+                    text-sm sm:text-base font-medium"
         >
           {item.logo ? (
             <img
               src={item.logo}
               alt={item.label}
-              className="h-8 w-auto sm:h-10"
+              className="h-6 w-auto sm:h-8 opacity-90 hover:opacity-100 transition-opacity"
             />
           ) : (
-            item.label
+            <span className="tracking-wide">{item.label}</span>
           )}
         </button>
       ))}
