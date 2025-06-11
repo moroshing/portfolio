@@ -1,31 +1,36 @@
 import { forwardRef } from "react";
+import testImg from "../assets/test1.png";
 
 interface HeroSectionProps {
   // Add any props you need
 }
 
-import testImg from "../assets/test.png";
-
 const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => (
-  <section ref={ref} className="w-full h-screen flex items-center pt-24">
-    <div className="flex w-full max-w-[60vw] px-8">
+  <section ref={ref} className="py-10 lg:py-20">
+    <div className="flex flex-col lg:flex-row w-full items-center gap-8">
       {/* Left: Text */}
-      <div className="flex-1 flex flex-col justify-center">
-        <h1 className="text-5xl font-bold mb-2">Kyle David S. Caumeran</h1>
-        <h2 className="text-2xl font-semibold mb-4 text-blue-700">
+      <div className="flex-1 flex flex-col justify-center px-4 sm:px-8 lg:px-0 order-2 lg:order-1">
+        <h3 className="text-lg sm:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 max-w-xl">
+          Hey there! I'm
+        </h3>
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl text-gray-800 dark:text-gray-200 font-bold mb-2 lg:mb-4 ">
+          Moroching.
+        </h1>
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
           Software Developer
         </h2>
-        <p className="text-lg text-gray-700 max-w-xl">
+        <p className="text-base sm:text-lg lg:text-xl text-gray-700 dark:text-gray-300 max-w-xl leading-relaxed">
           I build applications that simplify tasks, automate workflows, and
           reduce manual effort so people can focus on what matters most.
         </p>
       </div>
+
       {/* Right: Image */}
-      <div className="flex-1 flex items-center justify-center">
+      <div className="order-1 lg:order-2">
         <img
           src={testImg}
           alt="Profile"
-          className="w-64 h-64 object-contain"
+          className="w-48 sm:w-64 lg:w-80 h-auto object-contain"
           draggable={false}
         />
       </div>
@@ -33,5 +38,5 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => (
   </section>
 ));
 
-HeroSection.displayName = "HeroSection"; // Helps with debugging
+HeroSection.displayName = "HeroSection";
 export default HeroSection;
