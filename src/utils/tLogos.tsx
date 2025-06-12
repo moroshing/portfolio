@@ -11,10 +11,12 @@ import gitHub from "../assets/github.png";
 import discord from "../assets/discord.png";
 import php from "../assets/php.png";
 import express from "../assets/express.png";
+import sqlite from "../assets/sqlite.png";
 
 export const techLogos = [
   jsLogo,
   tsLogo,
+  sqlite,
   reactLogo,
   mSQL,
   cSharp,

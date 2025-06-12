@@ -6,6 +6,63 @@ body {
   overflow-x: hidden;
 }
 
+/* Add to your global CSS */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, -20px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes particle-flow {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, currentColor 1px, transparent 1px),
+    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-particle-pattern {
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.clip-path-polygon {
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.animate-float {
+  animation: float 15s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.animate-particle-flow {
+  animation: particle-flow 60s linear infinite;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
