@@ -48,7 +48,7 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => {
           />
         </div>
       </div>
-      <Marquee className="mt-60" gradient={true} speed={50}>
+      <Marquee className="mt-50" gradient={true} speed={50}>
         {techLogos.map((logo, idx) => (
           <img
             key={idx}

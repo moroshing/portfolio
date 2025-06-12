@@ -22,7 +22,7 @@ const preloadImages = (srcArray: string[]): Promise<void> => {
           const img = new Image();
           img.src = src;
           img.onload = () => resolve();
-          img.onerror = () => resolve(); // resolve anyway to continue
+          img.onerror = () => resolve();
         })
     )
   ).then(() => undefined);
@@ -90,7 +90,6 @@ function App() {
         >
           <HeroSection />
         </section>
-
         <section
           ref={skillsRef}
           className="min-h-[60vh] py-14  scroll-mt-14 w-full"
@@ -110,7 +109,6 @@ function App() {
           <ServicesSection />
         </section>
       </main>
-
       <section
         ref={contactRef}
         className="min-h-screen pt-14 bg-black scroll-mt-14 w-full"
@@ -119,7 +117,6 @@ function App() {
           <ContactSection />
         </div>
       </section>
-
       <footer className="w-full max-w-full lg:max-w-[65vw] mx-auto text-center px-4 lg:px-8 py-4 text-xs sm:text-base">
         &copy; {new Date().getFullYear()}. Designed and Developed by Kyle David
         Caumeran
