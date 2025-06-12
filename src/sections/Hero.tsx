@@ -1,14 +1,45 @@
 import { forwardRef } from "react";
+import Marquee from "react-fast-marquee";
 import testImg from "../assets/test1.png";
 import { Badge } from "../components/ui/badge";
 import { Check } from "lucide-react";
+
+import jsLogo from "../assets/javascript.png";
+import tsLogo from "../assets/typescript.png";
+import reactLogo from "../assets/react.png";
+import mongoDB from "../assets/mongodb.png";
+import mSQL from "../assets/microsoftSQL.png";
+import cSharp from "../assets/csharp.png";
+import capCut from "../assets/capcut.png";
+import figma from "../assets/figma.png";
+import canva from "../assets/canva.png";
+import gitHub from "../assets/github.png";
+import discord from "../assets/discord.png";
+import php from "../assets/php.png";
+import express from "../assets/express.png";
 
 interface HeroSectionProps {
   // Add any props you need
 }
 
+const techLogos = [
+  jsLogo,
+  tsLogo,
+  reactLogo,
+  mSQL,
+  cSharp,
+  capCut,
+  figma,
+  mongoDB,
+  canva,
+  gitHub,
+  discord,
+  express,
+  php,
+];
+
 const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => (
-  <section ref={ref} className="py-10 lg:py-14">
+  <section ref={ref} className="py-10 lg:py-36">
     <div className="flex flex-col lg:flex-row w-full items-center gap-8">
       {/* Left: Text */}
       <div className="flex-1 flex flex-col justify-center px-4 sm:px-8 lg:px-0 order-2 lg:order-1">
@@ -47,6 +78,17 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => (
         />
       </div>
     </div>
+    <Marquee className="mt-60" gradient={true} speed={50}>
+      {techLogos.map((logo, idx) => (
+        <img
+          key={idx}
+          src={logo}
+          alt=""
+          className="h-12 w-auto mx-4 object-contain grayscale hover:grayscale-0 transition duration-300"
+          draggable={false}
+        />
+      ))}
+    </Marquee>
   </section>
 ));
 

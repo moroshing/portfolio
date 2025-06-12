@@ -10,6 +10,7 @@ import HeroSection from "./sections/Hero";
 import ContactSection from "./sections/Contact";
 import ServicesSection from "./sections/Services";
 import SkillsSection from "./sections/Skills";
+import ProjectsSection from "./sections/Projects";
 
 // Preload helper
 const preloadImages = (srcArray: string[]): Promise<void> => {
@@ -80,6 +81,7 @@ function App() {
         >
           <HeroSection />
         </section>
+
         <section
           ref={skillsRef}
           className="min-h-[60vh] py-14  scroll-mt-14 w-full"
@@ -90,7 +92,7 @@ function App() {
           ref={worksRef}
           className="min-h-[60vh] py-14  scroll-mt-14 w-full"
         >
-          <div>Projects</div>
+          <ProjectsSection />
         </section>
         <section
           ref={servicesRef}
