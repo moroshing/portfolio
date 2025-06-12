@@ -25,7 +25,7 @@ const Navbar = ({ items, onNavClick }: NavbarProps) => (
             <img
               src={item.logo}
               alt={item.label}
-              className="h-6 w-auto sm:h-8 opacity-90 hover:opacity-100 transition-opacity"
+              className="h-7 w-auto sm:h-8 opacity-90 hover:opacity-100 transition-opacity"
             />
           ) : (
             <span className="tracking-wide">{item.label}</span>

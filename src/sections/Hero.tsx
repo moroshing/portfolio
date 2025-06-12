@@ -1,12 +1,14 @@
 import { forwardRef } from "react";
 import testImg from "../assets/test1.png";
+import { Badge } from "../components/ui/badge";
+import { Check } from "lucide-react";
 
 interface HeroSectionProps {
   // Add any props you need
 }
 
 const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => (
-  <section ref={ref} className="py-10 lg:py-20">
+  <section ref={ref} className="py-10 lg:py-14">
     <div className="flex flex-col lg:flex-row w-full items-center gap-8">
       {/* Left: Text */}
       <div className="flex-1 flex flex-col justify-center px-4 sm:px-8 lg:px-0 order-2 lg:order-1">
@@ -19,6 +21,16 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => (
         <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
           Software Developer
         </h2>
+        <div className="flex flex-wrap gap-2 mb-6">
+          <Badge variant="default">Frontend</Badge>
+          <Badge variant="secondary">Backend</Badge>
+          <Badge variant="outline">Full-Stack</Badge>
+          <Badge className="bg-green-600 text-white hover:bg-green-700">
+            <Check className="w-4 h-4 mr-1" />
+            Open to Work
+          </Badge>
+        </div>
+
         <p className="text-base sm:text-lg lg:text-xl text-gray-700 dark:text-gray-300 max-w-xl leading-relaxed">
           I build applications that simplify tasks, automate workflows, and
           reduce manual effort so people can focus on what matters most.

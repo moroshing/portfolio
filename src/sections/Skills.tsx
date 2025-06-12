@@ -11,6 +11,7 @@ import {
   SiCanva,
   SiSqlite,
   SiMongodb,
+  SiFigma,
 } from "react-icons/si";
 import { Video } from "lucide-react";
 
@@ -33,16 +34,16 @@ const skills = [
         name: "JavaScript",
         icon: <SiJavascript className="text-yellow-400" />,
       },
-      { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
-      { name: "PHP", icon: <SiPhp className="text-purple-500" /> },
-      { name: "C#", icon: <SiDotnet className="text-purple-600" /> },
+      { name: "TypeScript", icon: <SiTypescript className="text-[#3078c6]" /> },
+      { name: "PHP", icon: <SiPhp className="text-[#4f5b93]" /> },
+      { name: "C#", icon: <SiDotnet className="text-[#7030a1]" /> },
     ],
   },
   {
     category: "Databases",
     items: [
       { name: "MySQL", icon: <SiMysql className="text-blue-600" /> },
-      { name: "SQLite", icon: <SiSqlite className="text-gray-500" /> },
+      { name: "SQLite", icon: <SiSqlite className="text-[#003b57]" /> },
       { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
     ],
   },
@@ -51,7 +52,8 @@ const skills = [
     items: [
       { name: "Git", icon: <SiGit className="text-orange-600" /> },
       { name: "CapCut", icon: <Video className="text-black" /> },
-      { name: "Canva", icon: <SiCanva className="text-emerald-500" /> },
+      { name: "Canva", icon: <SiCanva className="text-[#4664dd]" /> },
+      { name: "Figma", icon: <SiFigma className="text-pink-500" /> },
     ],
   },
 ];
@@ -60,7 +62,7 @@ const SkillsSection = () => {
   return (
     <section
       id="skills"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900"
+      className="py-20 px-4 sm:px-6 lg:px-8  dark:bg-gray-900"
     >
       <div className="max-w-7xl mx-auto px-10">
         <div className="text-center mb-16">
@@ -68,7 +70,7 @@ const SkillsSection = () => {
             Technical Skills
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Languages, frameworks, and tools I work with
+            Core technologies and development tools
           </p>
         </div>
 

@@ -1,5 +1,5 @@
 import { Ripple } from "../components/magicui/ripple";
-import testImg from "../assets/test.png";
+import testImg from "../assets/logo1.png";
 
 const Loading: React.FC = () => {
   return (

@@ -1,13 +1,30 @@
 import { useRef, useState, useEffect } from "react";
-import Navbar from "./components/Navbar";
 
+import Navbar from "./components/Navbar";
 import Loading from "./components/Loading";
-import logoImg from "./assets/test.png";
+
+import logoImg from "./assets/logo1.png";
+import testImg from "./assets/test1.png";
 
 import HeroSection from "./sections/Hero";
 import ContactSection from "./sections/Contact";
 import ServicesSection from "./sections/Services";
 import SkillsSection from "./sections/Skills";
+
+// Preload helper
+const preloadImages = (srcArray: string[]): Promise<void> => {
+  return Promise.all(
+    srcArray.map(
+      (src) =>
+        new Promise<void>((resolve, reject) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => resolve();
+          img.onerror = () => reject();
+        })
+    )
+  ).then(() => undefined);
+};
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -35,19 +52,16 @@ function App() {
   ];
 
   useEffect(() => {
-    const timer = setTimeout(() => setFade(true), 1800);
-    const timer2 = setTimeout(() => setLoading(false), 2000);
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(timer2);
-    };
+    preloadImages([logoImg, testImg]).then(() => {
+      setFade(true);
+      setTimeout(() => setLoading(false), 500); // fully hide after transition
+    });
   }, []);
 
-  // Uncomment if you want to use the loading screen
   if (loading) {
     return (
       <div
-        className={`transition-opacity duration-300 ${
+        className={`transition-opacity duration-500 ${
           fade ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
@@ -59,8 +73,7 @@ function App() {
   return (
     <div className="relative flex flex-col">
       <Navbar items={navItems} onNavClick={handleNavClick} />
-
-      <main className="flex-1 w-full max-w-full lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 lg:px-8">
+      <main className="relative z-10 flex-1 w-full max-w-full lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 lg:px-8">
         <section
           ref={heroRef}
           className="min-h-[60vh] py-14 scroll-mt-14 w-full"

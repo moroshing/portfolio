@@ -60,7 +60,7 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900"
+      className="py-20 px-4 sm:px-6 lg:px-8 dark:bg-gray-900"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
@@ -68,8 +68,7 @@ const ServicesSection = () => {
             Professional Services
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Comprehensive solutions blending technical expertise with creative
-            vision
+            Delivering reliable tech solutions with thoughtful design
           </p>
         </div>
 
