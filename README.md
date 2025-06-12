@@ -23,14 +23,14 @@ Designed to showcase projects, skills, and experience with clarity and polish.
 ## Setup & Installation
 
 
-# Clone the repository
-git clone https://github.com/moroshing/portfolio.git
+### Clone the repository
+    git clone https://github.com/moroshing/portfolio.git
 
-# Navigate to the project folder
-cd portfolio
+### Navigate to the project folder
+    cd portfolio
 
-# Install dependencies
-npm install
+### Install dependencies
+    npm install
 
-# Start the dev server
-npm run dev
+### Start the dev server
+    npm run dev
