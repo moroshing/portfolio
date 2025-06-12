@@ -1,10 +1,11 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 
 import Navbar from "./components/Navbar";
 import Loading from "./components/Loading";
 
 import logoImg from "./assets/logo1.png";
 import testImg from "./assets/test1.png";
+import { techLogos } from "./utils/tLogos";
 
 import HeroSection from "./sections/Hero";
 import ContactSection from "./sections/Contact";
@@ -12,16 +13,16 @@ import ServicesSection from "./sections/Services";
 import SkillsSection from "./sections/Skills";
 import ProjectsSection from "./sections/Projects";
 
-// Preload helper
 const preloadImages = (srcArray: string[]): Promise<void> => {
+  const uniqueSrcs = Array.from(new Set(srcArray));
   return Promise.all(
-    srcArray.map(
+    uniqueSrcs.map(
       (src) =>
-        new Promise<void>((resolve, reject) => {
+        new Promise<void>((resolve) => {
           const img = new Image();
           img.src = src;
           img.onload = () => resolve();
-          img.onerror = () => reject();
+          img.onerror = () => resolve(); // resolve anyway to continue
         })
     )
   ).then(() => undefined);
@@ -37,12 +38,15 @@ function App() {
   const servicesRef = useRef<HTMLElement>(null);
   const contactRef = useRef<HTMLElement>(null);
 
-  const handleNavClick = (ref: React.RefObject<HTMLElement | null>) => {
-    ref.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
+  const handleNavClick = useCallback(
+    (ref: React.RefObject<HTMLElement | null>) => {
+      ref.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    },
+    []
+  );
 
   const navItems = [
     { label: "Skills", ref: skillsRef },
@@ -53,10 +57,15 @@ function App() {
   ];
 
   useEffect(() => {
-    preloadImages([logoImg, testImg]).then(() => {
+    const loadAssets = async () => {
+      const imageList = [...techLogos, logoImg, testImg];
+      await preloadImages(imageList);
+
       setFade(true);
-      setTimeout(() => setLoading(false), 500); // fully hide after transition
-    });
+      setTimeout(() => setLoading(false), 500);
+    };
+
+    loadAssets();
   }, []);
 
   if (loading) {
