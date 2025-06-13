@@ -9,7 +9,6 @@ import {
 
 import Navbar from "./components/Navbar";
 import Loading from "./components/Loading";
-import AquariusConstellation from "./components/Background";
 
 import HeroSkeleton from "./components/skeletons/HeroSkeleton";
 import SkillsSkeleton from "./components/skeletons/SkillsSkeleton";
@@ -20,6 +19,7 @@ import ContactSkeleton from "./components/skeletons/ContactSkeleton";
 import logoImg from "./assets/logo1.png";
 import testImg from "./assets/test1.png";
 import { techLogos } from "./utils/tLogos";
+import GlowingDots from "./components/Background";
 
 const HeroSection = lazy(() => import("./sections/Hero"));
 const SkillsSection = lazy(() => import("./sections/Skills"));
@@ -116,7 +116,7 @@ function App() {
         loading ? "overflow-hidden h-screen" : ""
       }`}
     >
-      <AquariusConstellation />
+      <GlowingDots />
       {(loading || fade) && (
         <div
           role="status"
@@ -173,7 +173,7 @@ function App() {
           </Suspense>
         </div>
       </section>
-      <footer className="w-full max-w-full bg-white lg:max-w-[65vw] mx-auto text-center px-4 lg:px-8 py-4 text-xs sm:text-base">
+      <footer className="w-full max-w-full bg-white mx-auto text-center px-4 lg:px-8 py-4 text-xs sm:text-base">
         &copy; {new Date().getFullYear()}. Designed and Developed by Kyle David
         Caumeran
       </footer>

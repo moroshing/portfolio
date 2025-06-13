@@ -28,7 +28,7 @@ const projects = [
   {
     title: "Backup Monitoring Tool",
     description:
-      "A tool to monitor and verify backups from a POS system, reducing review time by 95%.",
+      "A monitoring tool that automatically verifies backups from Pryce Gases Inc.'s POS system, reducing manual review time by 95%.",
     tech: [".NET", "C#", "GoogleAPIs"],
     github: "",
     demo: "",
@@ -65,8 +65,10 @@ const ProjectsSection = () => (
           {/* Content on Top */}
           <div className="relative z-10 p-6 h-full flex flex-col justify-between text-white">
             <div>
-              <h2 className="text-2xl font-semibold">{project.title}</h2>
-              <p className="text-sm text-gray-200 mt-3">
+              <h2 className="text-2xl font-semibold truncate">
+                {project.title}
+              </h2>
+              <p className="text-sm text-gray-200 mt-3 line-clamp-3">
                 {project.description}
               </p>
             </div>
@@ -107,7 +109,7 @@ const ProjectsSection = () => (
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <ExternalLink className="w-4 h-4" /> Live
+                    <ExternalLink className="w-2 h-2" /> Live
                   </a>
                 </Button>
               )}

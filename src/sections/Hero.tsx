@@ -14,7 +14,6 @@ interface HeroSectionProps {}
 
 const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => {
   const [nicknameShown, setNicknameShown] = useState(false);
-  // 👇 Hide tooltip on scroll
   useEffect(() => {
     const handleScroll = () => {
       if (nicknameShown) {
@@ -26,10 +25,9 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [nicknameShown]);
   return (
-    <section ref={ref} className="py-10 lg:py-36">
+    <section ref={ref}>
       <div className="flex flex-col lg:flex-row w-full items-center gap-8">
-        {/* Left: Text - now takes full width on mobile */}
-        <div className="w-full lg:flex-1 flex flex-col justify-center px-4 sm:px-8 lg:px-0">
+        <div className="w-full lg:flex-1 flex flex-col justify-center py-30 px-4 sm:px-8 lg:px-0">
           <h3 className="text-lg sm:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 max-w-xl">
             Hey there! I'm
           </h3>
@@ -60,7 +58,7 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => {
             <TooltipTrigger
               asChild
               onMouseEnter={() => setNicknameShown(true)}
-              onClick={() => setNicknameShown(true)} // For mobile
+              onClick={() => setNicknameShown(true)}
             >
               <img
                 src={testImg}
@@ -80,13 +78,19 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => {
           </Tooltip>
         </div>
       </div>
-      <Marquee className="mt-12 lg:mt-50" gradient={true} speed={50}>
+      <Marquee
+        className="mt-30 lg:mt-50"
+        pauseOnClick
+        pauseOnHover
+        direction="right"
+        speed={50}
+      >
         {techLogos.map((logo, idx) => (
           <img
             key={idx}
             src={logo}
             alt=""
-            className="h-12 w-auto mx-4 object-contain grayscale hover:grayscale-0 transition duration-300"
+            className="h-12 w-auto mx-4 object-contain drop-shadow-xs"
             draggable={false}
           />
         ))}

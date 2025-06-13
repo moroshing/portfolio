@@ -7,7 +7,7 @@ import {
   SiPhp,
   SiDotnet,
   SiMysql,
-  SiGit,
+  SiGithub,
   SiCanva,
   SiSqlite,
   SiMongodb,
@@ -50,10 +50,10 @@ const skills = [
   {
     category: "Tools",
     items: [
-      { name: "Git", icon: <SiGit className="text-orange-600" /> },
+      { name: "GitHub", icon: <SiGithub className="text-gray-600" /> },
       { name: "CapCut", icon: <Video className="text-black" /> },
       { name: "Canva", icon: <SiCanva className="text-[#4664dd]" /> },
-      { name: "Figma", icon: <SiFigma className="text-pink-500" /> },
+      { name: "Figma", icon: <SiFigma className="text-orange-500" /> },
     ],
   },
 ];
