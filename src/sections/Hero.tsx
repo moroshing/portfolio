@@ -1,13 +1,30 @@
-import { forwardRef } from "react";
+import { forwardRef, useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import testImg from "../assets/test1.png";
 import { Badge } from "../components/ui/badge";
 import { Check } from "lucide-react";
 import { techLogos } from "../utils/tLogos";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "../components/ui/tooltip";
 
 interface HeroSectionProps {}
 
 const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => {
+  const [nicknameShown, setNicknameShown] = useState(false);
+  // 👇 Hide tooltip on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (nicknameShown) {
+        setNicknameShown(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [nicknameShown]);
   return (
     <section ref={ref} className="py-10 lg:py-36">
       <div className="flex flex-col lg:flex-row w-full items-center gap-8">
@@ -17,15 +34,16 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => {
             Hey there! I'm
           </h3>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl text-gray-800 dark:text-gray-200 font-bold mb-2 lg:mb-4">
-            Moroching.
+            Kyle David.
           </h1>
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
             Software Developer
           </h2>
           <div className="flex flex-wrap gap-2 mb-6">
             <Badge variant="default">Frontend</Badge>
-            <Badge variant="secondary">Backend</Badge>
+            <Badge variant="destructive">Backend</Badge>
             <Badge variant="outline">Full-Stack</Badge>
+            <Badge variant="secondary">Content Creator</Badge>
             <Badge className="bg-green-600 text-white hover:bg-green-700">
               <Check className="w-4 h-4 mr-1" />
               Open to Work
@@ -37,15 +55,29 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>((_, ref) => {
             reduce manual effort so people can focus on what matters most.
           </p>
         </div>
-
-        {/* Right: Image - hidden on mobile but maintains space */}
-        <div className="hidden lg:block lg:w-auto">
-          <img
-            src={testImg}
-            alt="Profile"
-            className="w-48 sm:w-64 lg:w-80 h-auto object-contain"
-            draggable={false}
-          />
+        <div className="hidden lg:block lg:w-auto relative">
+          <Tooltip open={nicknameShown}>
+            <TooltipTrigger
+              asChild
+              onMouseEnter={() => setNicknameShown(true)}
+              onClick={() => setNicknameShown(true)} // For mobile
+            >
+              <img
+                src={testImg}
+                alt="Profile"
+                className="w-48 sm:w-64 lg:w-80 h-auto object-contain cursor-pointer"
+                draggable={false}
+              />
+            </TooltipTrigger>
+            <TooltipContent
+              side="left"
+              sideOffset={0}
+              align="start"
+              className="translate-y-10 -translate-x-[-10px] max-w-sm text-base px-4 py-3 hidden lg:block rounded-2xl"
+            >
+              You can call me <span className="font-bold">Moroching</span>!
+            </TooltipContent>
+          </Tooltip>
         </div>
       </div>
       <Marquee className="mt-12 lg:mt-50" gradient={true} speed={50}>
