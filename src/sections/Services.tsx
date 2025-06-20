@@ -72,27 +72,59 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Mobile View: Horizontal Scroll */}
+        <div className="sm:hidden flex overflow-x-auto gap-4 -mx-4 px-4 pb-4 snap-x snap-mandatory">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="snap-start min-w-[260px] max-w-[280px] w-[85%] flex-shrink-0 bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all"
+            >
+              <div className="flex items-center mb-4">
+                <div className="p-2 rounded-lg bg-blue-50 dark:bg-gray-700">
+                  {service.icon}
+                </div>
+                <h3 className="ml-3 text-lg font-semibold text-gray-900 dark:text-white">
+                  {service.title}
+                </h3>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                {service.description}
+              </p>
+              <ul className="text-sm space-y-1">
+                {service.highlights.map((highlight, i) => (
+                  <li key={i} className="flex items-center">
+                    <span className="w-1.5 h-1.5 mr-2 rounded-full bg-blue-500"></span>
+                    <span className="text-gray-700 dark:text-gray-200">
+                      {highlight}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        {/* Desktop/Tablet View */}
+        <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
               className="group bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-transparent"
             >
-              <div className="flex items-center mb-6">
-                <div className="p-3 rounded-lg bg-blue-50 dark:bg-gray-700 group-hover:bg-blue-100 dark:group-hover:bg-gray-600 transition-colors">
+              <div className="flex items-center mb-4">
+                <div className="p-2 rounded-lg bg-blue-50 dark:bg-gray-700">
                   {service.icon}
                 </div>
-                <h3 className="ml-4 text-2xl font-bold text-gray-800 dark:text-white">
+                <h3 className="ml-3 text-lg font-semibold text-gray-900 dark:text-white">
                   {service.title}
                 </h3>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
                 {service.description}
               </p>
-              <ul className="space-y-2">
+              <ul className="text-sm space-y-1">
                 {service.highlights.map((highlight, i) => (
                   <li key={i} className="flex items-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2"></span>
+                    <span className="w-1.5 h-1.5 mr-2 rounded-full bg-blue-500"></span>
                     <span className="text-gray-700 dark:text-gray-200">
                       {highlight}
                     </span>
