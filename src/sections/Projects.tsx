@@ -41,7 +41,7 @@ const projects = [
     description:
       "A simple and intuitive app to track your expenses and income, helping you stay on top of your finances.o",
     tech: ["ReactTS", "Firebase", "MaterialUI"],
-    github: "https://github.com/moroshing/expense-tracker",
+    // github: "https://github.com/moroshing/expense-tracker",
     demo: "https://moniflo.netlify.app/",
     image: monifloImg,
   },
