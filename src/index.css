@@ -4,7 +4,7 @@
 html,
 body {
   overflow-x: hidden;
-  scroll-behavior: smooth;
+  overscroll-behavior-y: none;
 }
 
 /* Add to your global CSS */

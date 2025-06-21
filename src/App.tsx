@@ -140,7 +140,7 @@ function App() {
         </section>
         <section
           ref={skillsRef}
-          className="min-h-[60vh] py-14  scroll-mt-14 w-full"
+          className="min-h-[60vh] py-14  scroll-mt-14 w-full mt-20"
         >
           <Suspense fallback={<SkillsSkeleton />}>
             <SkillsSection />
@@ -165,9 +165,9 @@ function App() {
       </main>
       <section
         ref={contactRef}
-        className="min-h-screen pt-14 bg-black scroll-mt-14 w-full"
+        className="min-h-screen bg-black scroll-mt-14 w-full flex items-center justify-center px-4 sm:px-8"
       >
-        <div className="w-full max-w-full sm:max-w-[65vw] mx-auto px-4 sm:px-8 text-white">
+        <div className="w-full max-w-[65vw] text-white">
           <Suspense fallback={<ContactSkeleton />}>
             <ContactSection />
           </Suspense>
