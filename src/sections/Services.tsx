@@ -1,4 +1,5 @@
 import { Paintbrush, Monitor, Code, Cpu, Server, Image } from "lucide-react";
+import { Card } from "../components/ui/card";
 
 const ServicesSection = () => {
   const services = [
@@ -60,7 +61,7 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="py-20 px-4 sm:px-6 lg:px-8 dark:bg-gray-900"
+      className="py-10 px-4 sm:px-6 lg:px-8 dark:bg-gray-900"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
@@ -73,65 +74,76 @@ const ServicesSection = () => {
         </div>
 
         {/* Mobile View: Horizontal Scroll */}
-        <div className="sm:hidden flex overflow-x-auto gap-4 -mx-4 px-4 pb-4 snap-x snap-mandatory">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="snap-start min-w-[260px] max-w-[280px] w-[85%] flex-shrink-0 bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all"
-            >
-              <div className="flex items-center mb-4">
-                <div className="p-2 rounded-lg bg-blue-50 dark:bg-gray-700">
-                  {service.icon}
+        <div className="sm:hidden w-full overflow-hidden">
+          <div className="flex overflow-x-auto gap-4 px-4 pb-4 snap-x snap-mandatory">
+            {services.map((service, index) => (
+              <Card
+                key={index}
+                className="snap-start min-w-[280px] max-w-[300px] w-full aspect-square flex-shrink-0 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all"
+              >
+                <div className="p-6 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div className="p-2 rounded-lg bg-blue-50 dark:bg-gray-700">
+                        {service.icon}
+                      </div>
+                      <h3 className="ml-3 text-lg font-semibold text-gray-900 dark:text-white">
+                        {service.title}
+                      </h3>
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                      {service.description}
+                    </p>
+                  </div>
+                  <ul className="text-sm space-y-1">
+                    {service.highlights.map((highlight, i) => (
+                      <li key={i} className="flex items-center">
+                        <span className="w-1.5 h-1.5 mr-2 rounded-full bg-blue-500"></span>
+                        <span className="text-gray-700 dark:text-gray-200">
+                          {highlight}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="ml-3 text-lg font-semibold text-gray-900 dark:text-white">
-                  {service.title}
-                </h3>
-              </div>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
-                {service.description}
-              </p>
-              <ul className="text-sm space-y-1">
-                {service.highlights.map((highlight, i) => (
-                  <li key={i} className="flex items-center">
-                    <span className="w-1.5 h-1.5 mr-2 rounded-full bg-blue-500"></span>
-                    <span className="text-gray-700 dark:text-gray-200">
-                      {highlight}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+              </Card>
+            ))}
+          </div>
         </div>
+
         {/* Desktop/Tablet View */}
-        <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <div
+            <Card
               key={index}
-              className="group bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-transparent"
+              className="group h-64 sm:h-72 p-8 rounded-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-transparent bg-gray-50 dark:bg-gray-800"
             >
-              <div className="flex items-center mb-4">
-                <div className="p-2 rounded-lg bg-blue-50 dark:bg-gray-700">
-                  {service.icon}
+              <div className="flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex items-center mb-4">
+                    <div className="p-2 rounded-lg bg-blue-50 dark:bg-gray-700">
+                      {service.icon}
+                    </div>
+                    <h3 className="ml-3 text-lg font-semibold text-gray-900 dark:text-white">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                    {service.description}
+                  </p>
                 </div>
-                <h3 className="ml-3 text-lg font-semibold text-gray-900 dark:text-white">
-                  {service.title}
-                </h3>
+                <ul className="text-sm space-y-1">
+                  {service.highlights.map((highlight, i) => (
+                    <li key={i} className="flex items-center">
+                      <span className="w-1.5 h-1.5 mr-2 rounded-full bg-blue-500"></span>
+                      <span className="text-gray-700 dark:text-gray-200">
+                        {highlight}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
-                {service.description}
-              </p>
-              <ul className="text-sm space-y-1">
-                {service.highlights.map((highlight, i) => (
-                  <li key={i} className="flex items-center">
-                    <span className="w-1.5 h-1.5 mr-2 rounded-full bg-blue-500"></span>
-                    <span className="text-gray-700 dark:text-gray-200">
-                      {highlight}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </Card>
           ))}
         </div>
       </div>
