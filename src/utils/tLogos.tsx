@@ -12,6 +12,7 @@ import discord from "../assets/discord.png";
 import php from "../assets/php.png";
 import express from "../assets/express.png";
 import sqlite from "../assets/sqlite.png";
+import wordpress from "../assets/wordpress.png";
 
 export const techLogos = [
   jsLogo,
@@ -27,5 +28,6 @@ export const techLogos = [
   gitHub,
   discord,
   express,
+  wordpress,
   php,
 ];

@@ -13,8 +13,9 @@ import {
   SiSqlite,
   SiMongodb,
   SiFigma,
-  SiAirplayvideo,
+  SiWordpress,
 } from "react-icons/si";
+import { BsCameraVideo } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
 
 const skills = [
@@ -50,6 +51,12 @@ const skills = [
     ],
   },
   {
+    category: "CMS",
+    items: [
+      { name: "Wordpress", icon: <SiWordpress className="text-[#2a97c2]" /> },
+    ],
+  },
+  {
     category: "Tools",
     items: [
       {
@@ -58,9 +65,9 @@ const skills = [
       },
       {
         name: "CapCut",
-        icon: <SiAirplayvideo className="text-gray-800 dark:text-gray-200" />,
+        icon: <BsCameraVideo className="text-gray-800 dark:text-gray-200" />,
       },
-      { name: "Canva", icon: <SiCanva className="text-blue-500" /> },
+      { name: "Canva", icon: <SiCanva className="text-[#7d2ae8]" /> },
       { name: "Figma", icon: <SiFigma className="text-orange-500" /> },
     ],
   },

@@ -7,6 +7,7 @@ import einvitesImg from "../assets/einvites.png";
 import portfolioImg from "../assets/portfolio.png";
 import bMonitorImg from "../assets/backupmonitor.png";
 import monifloImg from "../assets/moniflo.png";
+import lensendaryImg from "../assets/lensendary.png";
 
 const projects = [
   {
@@ -42,6 +43,15 @@ const projects = [
     // github: "https://github.com/moroshing/expense-tracker",
     demo: "https://moniflo.netlify.app/",
     image: monifloImg,
+  },
+  {
+    title: "Lensendary",
+    description:
+      "A WordPress-based portfolio site with custom styling for showcasing photography.",
+    tech: ["WordPress", "Divi", "PHP", "CSS"],
+    // github: "", // optional if you didn’t custom-code the theme/plugin
+    demo: "https://lensendary.instawp.site/",
+    image: lensendaryImg,
   },
   {
     title: "More Projects Coming Soon",
